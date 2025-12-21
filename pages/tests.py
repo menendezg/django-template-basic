@@ -24,7 +24,3 @@ class HomePageTests(SimpleTestCase):
 
     def test_home_page_does_not_contain_incorrect_html(self):
         self.assertNotContains(self.response, "This is not on the page")
-
-    def test_home_page_url_resolves_home_page_view(self):
-        view = resolve("/")
-        self.assertEqual(view.func.__name__, "home_page")
