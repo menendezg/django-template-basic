@@ -1,17 +1,10 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block title %}
   Home
 {% endblock %}
 {% block content %}
   <h1>Welcome to the Book Store. This is our homepage</h1>
-  {% if user.is_authenticated %}
-    <p>Welcome back, {{ user.email }}!</p>
-    <a href="{% url 'logout' %}">Logout</a>
-  {% else %}
-    <p>You are not logged in</p>
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'signup' %}">Sign Up</a>
-  {% endif %}
-  <p>Discover a variety of books across different genres. Enjoy your stay!</p>
+  <img class="bookcover" src="{% static 'images/book.png' %}" alt="Book Cover" />
 {% endblock %}
