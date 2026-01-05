@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
     # third party apps
     "crispy_forms",
     "crispy_bootstrap5",
@@ -166,7 +167,18 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 )
+
+# -----------------------------------------------------------------------------#
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+# once the email backend is configured we need to set to this
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# Then configure EMAIL_HOST, EMAIL_HOST_USER, EMAIL_HOST_PASSWORD, EMAIL_PORT,
+# and EMAIL_USE_TLS based on the instructions from your email
+# provider as environment variables.
+# -----------------------------------------------------------------------------#
+
+
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 
@@ -174,3 +186,4 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
+DEFAULT_FROM_EMAIL = "admin@djangobookstore.com"
